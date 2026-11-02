@@ -15,6 +15,17 @@ public class InputHandler {
         return scanner.nextLine();
     }
 
+    // Läs in en char från användaren
+    public char readChar() {
+        String input = scanner.nextLine().trim();
+
+        if (input.length() != 1) {
+            throw new IllegalArgumentException("Please enter a single character.");
+        }
+
+        return input.charAt(0);
+    }
+
     // Läs in ett heltal från användaren
     public int readInt() {
         return Integer.parseInt(scanner.nextLine());
