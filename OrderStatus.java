@@ -1,12 +1,8 @@
-public class OrderStatus {
-    
-private enum status{
+public enum OrderStatus {
 
     NEW,
     PENDING,
     FINISHED,
     COLLECTED;
-
-}
 
 }
