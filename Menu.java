@@ -43,7 +43,7 @@ public class Menu {
                 System.out.print("Invalid answer! Please enter Y or N: ");
             }
         }
-        
+
     }
 
     private void returnToMenu() {

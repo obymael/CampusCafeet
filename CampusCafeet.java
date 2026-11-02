@@ -1,5 +1,5 @@
 /** CampusCafeet - innehåller main
- * 
+ *
  */
 public class CampusCafeet {
     public static final String CAFE_NAME = "javac ☕️";
