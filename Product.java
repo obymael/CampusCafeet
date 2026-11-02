@@ -1,9 +1,9 @@
 public abstract class Product {
     private final String name; // Adderat final så namnet inte kan tilldelas nytt värde efter skapandet
-    private final float price; // Samma för priset
+    private final double price; // Samma för priset
 
     // Konstruktor säkerställer att varje produkt som skapas har ett namn & pris
-    public Product(String name, float price) {
+    public Product(String name, double price) {
         this.name = name;
         this.price = price;
     }
@@ -17,7 +17,7 @@ public abstract class Product {
         this.name = name;
     } */
 
-    public float getPrice() {
+    public double getPrice() {
         return price; 
     }
 
