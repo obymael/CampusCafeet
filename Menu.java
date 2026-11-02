@@ -3,11 +3,9 @@ public class Menu {
     public Menu (InputHandler input) {
         this.input = input;
     }
-    private boolean isOpen = true;
+    private boolean isOpen = true; // Open Status
 
     public void start() {
-        System.out.println("===== C A M P U S  C A F É =====");
-
         while (isOpen) {
             showMenu();
             handleChoice();
@@ -15,7 +13,7 @@ public class Menu {
     }
 
     private void showMenu() {
-        System.out.println("\n========== MAIN MENU ==========");
+        System.out.println("\n========== JAVAC MENU ☕️ ==========");
         System.out.println("1. View products & prices");
         System.out.println("2. Place an order");
         System.out.println("3. View all orders");
@@ -24,7 +22,22 @@ public class Menu {
         System.out.println("6. Pick up completed order");
         System.out.println("7. Today's statistics");
         System.out.println("8. Exit");
-        System.out.println("===============================");
+        System.out.println("=====================================");
+    }
+
+    private void confirmExit() {
+        System.out.println("Are you sure you want to close the café? (Y/N)");
+
+        String answer = input.readString();
+
+        if (answer.equalsIgnoreCase("Y")) {
+            System.out.println("Thanks for visiting javac ☕️");
+            isOpen = false;
+        } else if (answer.equalsIgnoreCase("N")) {
+            System.out.println("Great! The coffee is still brewing!");
+        } else {
+            System.out.println("Invalid answer! Please enter Y or N.");
+        }
     }
 
     private void handleChoice() {
@@ -61,8 +74,7 @@ public class Menu {
                     System.out.println("Showing statistics...");
                     break;
                 case 8:
-                    System.out.println("Thanks for visiting Campus Café!");
-                    isOpen = false;
+                    confirmExit();
                     break;
             }
         } catch (NumberFormatException e) {
