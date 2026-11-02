@@ -1,8 +1,8 @@
 public class TakingOrder {
 
-    private int orderId;
-    private String customerName;
-    private Product product; // (ska hämtas från Product.java?)
+    private final int orderId;
+    private final String customerName;
+    private final Product product; // (ska hämtas från Product.java?)
     private OrderStatus status; // (ska hämtas från OrderStatus enum?)
 
 
