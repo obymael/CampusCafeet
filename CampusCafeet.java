@@ -2,7 +2,7 @@
  *
  */
 public class CampusCafeet {
-    public static final String CAFE_NAME = "javac ♨";
+    public static final String CAFE_NAME = "javac ☕️";
 
     static void printWelcome() {
         System.out.println("===== C A M P U S  C A F É =====");
