@@ -13,7 +13,7 @@ public class Menu {
     }
 
     private void showMenu() {
-        System.out.println("\n========== JAVAC MENU ☕️ ==========");
+        System.out.printf("\n========== %s menu ==========\n", CampusCafeet.CAFE_NAME);
         System.out.println("1. View products & prices");
         System.out.println("2. Place an order");
         System.out.println("3. View all orders");
