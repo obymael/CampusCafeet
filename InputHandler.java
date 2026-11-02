@@ -31,6 +31,11 @@ public class InputHandler {
         return Integer.parseInt(scanner.nextLine());
     }
 
+    // Läs in ett decimaltal från användaren
+    public float readFloat() {
+        return Float.parseFloat(scanner.nextLine());
+    }
+
     // Stäng Scanner när programmet avslutas
     public void close() {
         scanner.close();
