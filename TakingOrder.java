@@ -27,5 +27,9 @@ public class TakingOrder {
         return status;
     }
 
+    public void setStatus(OrderStatus status) {
+        this.status = status;
+    }
+
 
 }   
