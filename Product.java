@@ -1,6 +1,6 @@
 public abstract class Product {
-    String name; 
-    float price; 
+    private String name; 
+    private float price; 
 
     public String getName() {
         return name;
