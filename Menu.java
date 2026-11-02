@@ -26,18 +26,30 @@ public class Menu {
     }
 
     private void confirmExit() {
-        System.out.println("Are you sure you want to close the café? (Y/N)");
+        System.out.print("Are you sure you want to close the café? (Y/N): ");
 
-        String answer = input.readString();
+        while (true) {
 
-        if (answer.equalsIgnoreCase("Y")) {
-            System.out.println("Thanks for visiting javac ☕️");
-            isOpen = false;
-        } else if (answer.equalsIgnoreCase("N")) {
-            System.out.println("Great! The coffee is still brewing!");
-        } else {
-            System.out.println("Invalid answer! Please enter Y or N.");
+            String answer = input.readString();
+
+            if (answer.equalsIgnoreCase("Y")) {
+                System.out.println("Thanks for visiting javac ☕️");
+                isOpen = false;
+                return;
+            } else if (answer.equalsIgnoreCase("N")) {
+                System.out.println("Great! The coffee is still brewing!");
+                return;
+            } else {
+                System.out.print("Invalid answer! Please enter Y or N: ");
+            }
         }
+        
+    }
+
+    private void returnToMenu() {
+        System.out.println();
+        System.out.print("Press ENTER to return to main menu...");
+        input.waitForEnter();
     }
 
     private void handleChoice() {
@@ -75,8 +87,10 @@ public class Menu {
                     break;
                 case 8:
                     confirmExit();
-                    break;
+                    return; // Avsluta hela metoden (i.e. kör inte returnToMenu())
             }
+            // Vänta på ENTER innan huvudmenyn visas igen
+            returnToMenu();
         } catch (NumberFormatException e) {
             System.out.println("Please enter a valid number!");
         }
