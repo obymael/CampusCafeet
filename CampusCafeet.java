@@ -2,12 +2,13 @@
  * 
  */
 public class CampusCafeet {
+    private static final String CAFE_NAME = "javac ☕️";
 
     static void printWelcome() {
         System.out.println("===== C A M P U S  C A F É =====");
         System.out.println();
-        System.out.println("Welcome to Campus Café!");
-        System.out.println("Your daily dose of caffeine and questionable decisions.");
+        System.out.println("Welcome to " + CAFE_NAME + "!");
+        System.out.println("Compiling caffeine, one cup at a time.");
         System.out.println();
         System.out.println("No coffee? NullPointerException.");
         System.out.println("No money? InsufficientFundsException.");
