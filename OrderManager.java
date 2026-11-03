@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 /** OrderManager
  * denna klassen ansvarar för att lagra och hantera flera beställningar
  * 
  */
-import java.util.Queue;
 public class OrderManager {
     // Alla registrerade beställningar
     private final List<TakingOrder> orders = new ArrayList<>();
