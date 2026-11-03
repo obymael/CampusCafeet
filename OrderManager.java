@@ -14,7 +14,8 @@ import java.util.Set;
  * 
  */
 public class OrderManager {
-    private int nextOrderId = 1;
+    private int nextOrderId = 1; 
+    //tog hjälp av AI här men den sa detta skulle addas...
 
     // Alla registrerade beställningar
     private final List<TakingOrder> orders = new ArrayList<>();

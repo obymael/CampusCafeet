@@ -1,7 +1,8 @@
 public class Menu {
     private final InputHandler input;
     private final OrderManager orderManager;
-    private final RegistreringAnOrder registreringAnOrder;
+    private final RegistreringAnOrder registreringAnOrder; 
+    // Added RegistreringAnOrder as a field to use its methods
 
     public Menu(InputHandler input, OrderManager orderManager) {
         this.input = input;
