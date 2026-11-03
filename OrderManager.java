@@ -63,4 +63,33 @@ public class OrderManager {
         }
     }
 
+    // Metod som färdigställer nästa beställning
+    public void prepareNextOrder() {
+        // Kontrollera om kön är tom
+        if (orderQueue.isEmpty()) {
+            // Om den är tom, skriv ut meddelande:
+            System.out.println("No pending orders.");
+            // Avsluta metoden
+            return;
+        }
+
+        // Hämta och ta bort den äldsta beställningen
+        TakingOrder order = orderQueue.poll(); // poll hämtar första objektet i kön o tar bort det
+
+        // Hämta produkten från beställningen
+        Product product = order.getProduct();
+
+        // Kontrollera om produkten behöver tillagas 
+        if (product instanceof Preparable preparable) {
+            // om produkten implementerar Preparable så skapas variabeln preparable
+            // och vi anropar då preparable()
+            preparable.prepare();
+        }
+
+        // Uppdatera beställningens status
+        order.setStatus(OrderStatus.FINISHED);
+
+        System.out.println("Order # " + order.getOrderId() + " is ready!");
+    }
+
 }
