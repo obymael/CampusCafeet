@@ -72,6 +72,7 @@ public class Menu {
                     break;
                 case 3:
                     System.out.println("Showing all orders...");
+                    //orderManager.showAllOrders();
                     break;
                 case 4:
                     System.out.println("Showing order queue...");
