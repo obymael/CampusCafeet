@@ -14,6 +14,8 @@ import java.util.Set;
  * 
  */
 public class OrderManager {
+    private int nextOrderId = 1;
+
     // Alla registrerade beställningar
     private final List<TakingOrder> orders = new ArrayList<>();
 
@@ -22,6 +24,10 @@ public class OrderManager {
 
     // Historik över de senast färdigställda beställningarna
     private final Deque<TakingOrder> completedOrders = new ArrayDeque<>();
+
+    public int getNextOrderId() {
+        return nextOrderId++;
+    }
 
     // Metod för att lägga till en ny beställning
     public void addOrder(TakingOrder order) {

@@ -1,10 +1,12 @@
 public class Menu {
     private final InputHandler input;
     private final OrderManager orderManager;
+    private final RegistreringAnOrder registreringAnOrder;
 
-    public Menu (InputHandler input, OrderManager orderManager) {
+    public Menu(InputHandler input, OrderManager orderManager) {
         this.input = input;
         this.orderManager = orderManager;
+        this.registreringAnOrder = new RegistreringAnOrder();
     }
 
     private boolean isOpen = true; // Open Status
@@ -70,9 +72,11 @@ public class Menu {
             switch (choice) {
                 case 1:
                     System.out.println("Showing products...");
+                    registreringAnOrder.showProducts();
                     break;
                 case 2:
                     System.out.println("Placing an order...");
+                    registreringAnOrder.placeOrder(input, orderManager);
                     break;
                 case 3:
                     // System.out.println("Showing all orders...");
@@ -88,6 +92,7 @@ public class Menu {
                     break;
                 case 6:
                     System.out.println("Handing out order...");
+                    registreringAnOrder.orderReceipt(choice, null, null);
                     break;
                 case 7:
                     System.out.println("Showing statistics...");
