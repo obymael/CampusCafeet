@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -149,6 +150,37 @@ public class OrderManager {
             System.out.println("No products sold yet.");
             return;
         }
+    }
+
+    // Metod för att sortera kundnamn alfabetiskt (sortera en kopia)
+    public void showSortedCustomers() {
+        // Skapa en lista med kundnamn
+        List<String> customerNames = new ArrayList<>();
+
+        // Hämta kundnamn från alla beställningar
+        for (TakingOrder order : orders) {
+            customerNames.add(order.getCustomerName());
+        }
+
+        // Kontrollera om listan är tom
+        if (customerNames.isEmpty()) {
+            System.out.println("No customers registered yet.");
+            return;
+        }
+
+        // Skapa en kopia av listan 
+        // - egentligen hade vi kunnat sortera orginallistan men det stod att vi skulle sortera en kopia
+        List<String> sortedCustomers = new ArrayList<>(customerNames);
+
+        // Sortera kopian alfabetiskt
+        Collections.sort(sortedCustomers);
+
+        // Skriv ut resultatet
+        System.out.println("Customers in alphabetical order:");
+        for (String customer : sortedCustomers) {
+            System.out.println("- " + customer);
+        }
+
     }
 
 }
