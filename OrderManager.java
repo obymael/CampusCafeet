@@ -1,7 +1,9 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 /** OrderManager
@@ -119,6 +121,33 @@ public class OrderManager {
 
         for (String productName : uniqueProducts) {
             System.out.println("- " + productName);
+        }
+    }
+
+    // Metod för att räkna antalet sålda produkter
+    /** Förklaring av vad en Map är
+     * - en Map lagrar infromation som nyckel och värde (key-value)
+     * - KEY: String kommer här vara produktens namn
+     * - VALUE: Integer här för att visa hur många gånger produkten sålts
+     * 
+     * en List kan innehålla alla beställningar men håller inte automatiskt reda på
+     * hur många gånger varje produkt förekommer, men med Map så får vi en direkt koppling
+     */
+    public void showProductSales() {
+        Map<String, Integer> productSales = new HashMap<>();
+
+        for (TakingOrder order : orders) {
+            String productName = order.getProduct().getName();
+
+            // put() sparar nya antalet under produktens namn
+            // getOrDefault() kontrollerar om produkten redan finns i Map,
+            // - om den finns, hämta nuvarande antal, om den inte finns använd 0, lägg till 1
+            productSales.put(productName, productSales.getOrDefault(productName, 0) + 1);
+        }
+
+        if (productSales.isEmpty()) {
+            System.out.println("No products sold yet.");
+            return;
         }
     }
 
