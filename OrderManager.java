@@ -1,5 +1,7 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -17,6 +19,9 @@ public class OrderManager {
 
     // Beställningar som väntar på att tillagas (First In First Out)
     private final Queue<TakingOrder> orderQueue = new LinkedList<>();
+
+    // Historik över de senast färdigställda beställningarna
+    private final Deque<TakingOrder> completedOrders = new ArrayDeque<>();
 
     // Metod för att lägga till en ny beställning
     public void addOrder(TakingOrder order) {
@@ -93,6 +98,9 @@ public class OrderManager {
 
         // Uppdatera beställningens status
         order.setStatus(OrderStatus.FINISHED);
+
+        // Lägg till den färdigställda beställningen först i historiken
+        completedOrders.addFirst(order); // addFirst för att den senast färdigställda beställningen alltid ska hamna först
 
         System.out.println("Order # " + order.getOrderId() + " is ready!");
     }
@@ -183,4 +191,31 @@ public class OrderManager {
 
     }
 
+    // Metod för att se de tre senaste beställninganra som blivit FINISHED
+    public void showRecentCompletedOrders() {
+        if (completedOrders.isEmpty()) {
+            System.out.println("No completed orders yet.");
+            return;
+        }
+
+        // Skapa en räknare
+        int count = 0;
+
+        System.out.println("Last 3 completed orders:");
+        for (TakingOrder order : completedOrders) {
+            // När tre beställningar har skrivits ut
+            if (count >= 3) {
+                break; // avbryt loopen
+            }
+
+            // Hämta information från objektet
+            System.out.println(
+                "Order #" + order.getOrderId() +
+                " | Customer: " + order.getCustomerName() +
+                " | Product: " + order.getProduct().getName()
+            );
+
+            count++; // öka räkningen efter varje utskriven beställning
+        }
+    }
 }
