@@ -1,15 +1,24 @@
 public class RegistreringAnOrder {
     
-    public void orderReceipt(int orderId, String product, String customerName){
+    public void orderReceipt(){
+        // needs to use the saved orderId, product, and customerName to print the receipt
         System.out.println("Here is your receipt.");
         System.out.println("Customer: " + customerName);
         System.out.println("Order: " + product);
         System.out.println("Order ID: " + orderId);
     }
 
-    public char confirmOrder(InputHandler input){
-        System.out.println("Do you want to confirm your order? (J/N)");
+    public char getReceiptConfirmation(InputHandler input){
+        System.out.println("Do you want to a receipt? (J/N)");
         char confirmation = input.readChar();
+        if (confirmation == 'J' || confirmation == 'j') {
+            orderReceipt();
+        } else if (confirmation == 'N' || confirmation == 'n') {
+            System.out.println("No receipt will be printed.");
+        } else {
+            System.out.println("Invalid input. Please enter J or N.");
+            return getReceiptConfirmation(input); // Recursively ask again
+        }
         return confirmation;
     }
 

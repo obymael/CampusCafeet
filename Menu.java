@@ -93,7 +93,8 @@ public class Menu {
                     break;
                 case 6:
                     System.out.println("Handing out order...");
-                    registreringAnOrder.orderReceipt(choice, null, null);
+                    registreringAnOrder.getReceiptConfirmation(input);
+                    //orderManager.pickUpCompletedOrder();
                     break;
                 case 7:
                     System.out.println("Showing statistics...");
