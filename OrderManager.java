@@ -41,4 +41,26 @@ public class OrderManager {
         }
     }
 
+    // Metod som visar alla väntade bestälningar i rätt ordning
+    public void showOrderQueue() {
+        // Kolla om kön är tom
+        if (orderQueue.isEmpty()) {
+            // Om den är tom, skriv ut meddelande:
+            System.out.println("No pending orders.");
+            // Avsluta metoden
+            return;
+        }
+
+        // Enhanced for-loop som går igenom alla ordrar i kön
+        for (TakingOrder order : orderQueue) {
+            // Hämta information från respektive objekt
+            System.out.println(
+                "Order #" + order.getOrderId() +
+                " | Customer: " + order.getCustomerName() +
+                " | Product: " + order.getProduct().getName() +
+                " | Status: " + order.getStatus()
+            );
+        }
+    }
+
 }
