@@ -16,15 +16,22 @@ public class CampusCafeet {
         System.out.println();
         System.out.println("Press ENTER to brew some chaos...");
     }
+
     public static void main(String[] args) {
         InputHandler input = new InputHandler();
-        Menu menu = new Menu(input); // Skapa en menu
+        OrderManager orderManager = new OrderManager();
+        Menu menu = new Menu(input, orderManager); // Skapa en menu
 
         // Kalla på metoderna härifrån
         printWelcome();
 
         // Vänta tills användaren trycker enter
         input.waitForEnter();
+
+        // TODO: Remove this: Tillfälliga testbeställningar
+        orderManager.addOrder(new TakingOrder(1, "Elin", new Coffee()));
+        orderManager.addOrder(new TakingOrder(2, "Cajsa", new Sandwich()));
+        orderManager.addOrder(new TakingOrder(3, "Jennie", new BottledWater()));
 
         // Starta menyn
         menu.start();

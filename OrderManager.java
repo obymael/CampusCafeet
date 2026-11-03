@@ -217,5 +217,5 @@ public class OrderManager {
 
             count++; // öka räkningen efter varje utskriven beställning
         }
-    }
+    }    
 }

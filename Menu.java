@@ -1,8 +1,12 @@
 public class Menu {
     private final InputHandler input;
-    public Menu (InputHandler input) {
+    private final OrderManager orderManager;
+
+    public Menu (InputHandler input, OrderManager orderManager) {
         this.input = input;
+        this.orderManager = orderManager;
     }
+
     private boolean isOpen = true; // Open Status
 
     public void start() {
@@ -71,14 +75,16 @@ public class Menu {
                     System.out.println("Placing an order...");
                     break;
                 case 3:
-                    System.out.println("Showing all orders...");
-                    //orderManager.showAllOrders();
+                    // System.out.println("Showing all orders...");
+                    orderManager.showAllOrders();
                     break;
                 case 4:
-                    System.out.println("Showing order queue...");
+                    // System.out.println("Showing order queue...");
+                    orderManager.showOrderQueue();
                     break;
                 case 5:
-                    System.out.println("Preparing next order...");
+                    // System.out.println("Preparing next order...");
+                    orderManager.prepareNextOrder();
                     break;
                 case 6:
                     System.out.println("Handing out order...");
