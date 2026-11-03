@@ -22,7 +22,7 @@ public class Menu {
         System.out.println("6. Pick up completed order");
         System.out.println("7. Today's statistics");
         System.out.println("8. Exit");
-        System.out.println("=====================================");
+        System.out.println("====================================");
     }
 
     private void confirmExit() {
@@ -89,8 +89,10 @@ public class Menu {
                     confirmExit();
                     return; // Avsluta hela metoden (i.e. kör inte returnToMenu())
             }
+
             // Vänta på ENTER innan huvudmenyn visas igen
             returnToMenu();
+
         } catch (NumberFormatException e) {
             System.out.println("Please enter a valid number!");
         }
