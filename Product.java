@@ -27,5 +27,5 @@ public abstract class Product {
                 "name='" + name + '\'' +
                 ", price=" + price +
                 '}';
-    } 
+    }
 }
