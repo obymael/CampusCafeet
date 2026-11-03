@@ -19,4 +19,26 @@ public class OrderManager {
         orderQueue.add(order); // innehåller bara beställningar som väntar på att behandlas
     }
 
+    // Metod för att visa alla registrerade beställningar
+    public void showAllOrders() {
+        // Kontrollera om listan är tom
+        if (orders.isEmpty()) {
+            // Om den är det skriv ut meddelande:
+            System.out.println("No orders registered yet.");
+            // Avsluta metoden
+            return;
+        }
+
+        // Enhanced for-loop för att gå igenom alla ordrar (objekt)
+        for (TakingOrder order : orders) {
+            // Hämta information från respektive objekt
+            System.out.println(
+                "Order #" + order.getOrderId() +
+                " | Customer: " + order.getCustomerName() +
+                " | Product: " + order.getProduct().getName() +
+                " | Status: " + order.getStatus()
+            );
+        }
+    }
+
 }
