@@ -1,7 +1,9 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Set;
 /** OrderManager
  * denna klassen ansvarar för att lagra och hantera flera beställningar
  * 
@@ -90,6 +92,34 @@ public class OrderManager {
         order.setStatus(OrderStatus.FINISHED);
 
         System.out.println("Order # " + order.getOrderId() + " is ready!");
+    }
+
+    // Metod för att visa unika produkter
+    /** förklaring skillnader mellan List och Set
+     * - List tillåter dubletter medans Set tillåter det
+     * - List behåller ordningen i en ArrayList medans HashSet inte garanterar ordningen
+     * - List kan hämta element med index, Set har inget index
+     */
+    public void showUniqueProducts() {
+        Set<String> uniqueProducts = new HashSet<>();
+
+        for (TakingOrder order : orders) {
+            // order.getProduct() hämtar produktobjektet från beställningen
+            // getName() hämtar produkterns namn
+            // .add() försöker lägga till namnet i vårt Set
+            uniqueProducts.add(order.getProduct().getName());
+        }
+
+        if (uniqueProducts.isEmpty()) {
+            System.out.println("No products ordered yet.");
+            return;
+        }
+
+        System.out.println("Unique ordered products:");
+
+        for (String productName : uniqueProducts) {
+            System.out.println("- " + productName);
+        }
     }
 
 }
